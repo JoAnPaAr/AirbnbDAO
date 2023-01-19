@@ -1,0 +1,81 @@
+<div>
+	<form
+		data-ng-submit="createEditUserVM.functions.createEditUserSwitcher()">
+
+		<fieldset class="fieldsetlogin">
+			<legend data-ng-template
+				data-ng-if="createEditUserVM.functions.where('/registrar')">Registrate
+			</legend>
+
+			<legend data-ng-template
+				data-ng-if="createEditUserVM.functions.where('/editUser')">Editar
+				Usuario </legend>
+
+			<!-- Nombre Usuario -->
+			<div>
+				<label for="usernameName">Nombre</label> <input class="inputdata"
+					type="text" name="usernameName" size="20" placeholder="Nombre"
+					data-ng-model="createEditUserVM.User.username"
+					data-ng-value="createEditUserVM.User.username" required />
+			</div>
+			<!-- Email Usuario -->
+			<div>
+				<label for="name">E-Mail</label> <input class="inputdata"
+					type="text" name="usernameMail" placeholder="example@gmail.com"
+					data-ng-model="createEditUserVM.User.email"
+					data-ng-value="createEditUserVM.User.email"
+					pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
+			</div>
+			<div>
+				<p>Debe contener:
+				<ul>
+					<li>Un numero</li>
+					<li>Una minuscula</li>
+					<li>Una mayuscula</li>
+					<li>Uno de estos caracteres: @#$%^&-+=()</li>
+					<li>Entre 8-20 caracteres</li>
+				</ul>
+				</p>
+				<label for="usernamePassword">Password</label> <input
+					class="inputdata" type="password" name="usernamePassword" size="20"
+					data-ng-model="createEditUserVM.User.password"
+					data-ng-value="createEditUserVM.User.password" required />
+			</div>
+			<div data-ng-template
+				data-ng-if="createEditUserVM.functions.where('/registrar')">
+				<label for="usernamePasswordConfirm">Confirm Password</label> <input
+					class="inputdata" type="password" name="usernamePasswordConfirm"
+					size="20" data-ng-model="createEditUserVM.ConfirmPassword.pswd" required />
+			</div>
+
+		</fieldset>
+		<div data-ng-template
+			data-ng-if="createEditUserVM.functions.where('/registrar')">
+			<label><input type="checkbox" id="terminos" value="isCLicked"
+				required> Acepto los <a
+				href="${pageContext.request.contextPath}/Resources/TerminosyPolitica.pdf"
+				target="_blank">Terminos y Condiciones</a> de Airecyb, asi como su <a
+				href="${pageContext.request.contextPath}/Resources/PoliticaPrivacidad.pdf"
+				target="_blank">Politica de Privacidad</a></label><br>
+		</div>
+		<div>
+			<!-- Boton en caso de crear el user -->
+			<input id="buttonCreateUser" type="submit" value="Crear"
+				data-ng-template
+				data-ng-if="createEditUserVM.functions.where('/registrar')"
+				class="button" />
+			<!-- Boton en caso de editar el user -->
+			<input id="buttonEditUser" type="submit" value="Editar"
+				data-ng-template
+				data-ng-if="createEditUserVM.functions.where('/editUser')"
+				class="button" />
+		</div>
+		<div>
+			<a href="" data-ng-click="createEditUserVM.functions.deleteUser()"
+				data-ng-template
+				data-ng-if="createEditUserVM.functions.where('/editUser')"
+				class="button">Eliminar Usuario</a>
+		</div>
+	</form>
+</div>
+

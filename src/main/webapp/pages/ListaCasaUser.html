@@ -1,0 +1,39 @@
+<div>
+	<fieldset class="fieldsetlogin">
+		<div>
+			<input class="inputdata" type="text" name="buscaTextoUser" size="40"
+				placeholder="Buscar..." data-ng-model="buscaTextoUser" />
+		</div>
+	</fieldset>
+	<div>
+		<a class="button" data-ng-href="#!/crearCasa">Crear casa</a>
+	</div>
+	<div class="container"
+		data-ng-repeat="Hosting in listUsrVM.HostingList|filter:buscaTextoUser">
+		<div class="card">
+			<div class="content">
+				<h3>{{Hosting.title}}</h3>
+				<h4>{{Hosting.description}}</h4>
+				<p>
+					Ubicacion: {{Hosting.location}}<br>
+				</p>
+				<p>
+					Precio/noche: {{Hosting.precio}}<br>
+				</p>
+				<p>
+					Me gustas: {{Hosting.likes}}<br>
+				</p>
+				<p data-ng-template data-ng-if="Hosting.available=='1'">Disponible</p>
+				<p data-ng-template data-ng-if="Hosting.available=='0'">Reservado</p>
+			</div>
+			<div>
+				<a data-ng-href="#!/editCasa/{{Hosting.id}}" class="button">Editar</a>
+			</div>
+			<div>
+				<a href=""
+					data-ng-click="listUsrVM.functions.deleteHost(Hosting.id)"
+					class="button">Borrar</a>
+			</div>
+		</div>
+	</div>
+</div>

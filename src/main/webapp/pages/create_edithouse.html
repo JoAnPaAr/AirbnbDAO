@@ -1,0 +1,107 @@
+<div>
+	<form
+		data-ng-submit="createEditHouseVM.functions.createEditHouseSwitcher()">
+		<fieldset class="fieldsetlogin">
+			<legend data-ng-template
+				data-ng-if="createEditHouseVM.functions.where('/crearCasa')">Crear
+				Casa</legend>
+
+			<legend data-ng-template
+				data-ng-if="createEditHouseVM.functions.where('/editCasa/' + createEditHouseVM.Hosting.id)">Editar
+				Casa</legend>
+
+			<!-- Title Hosting -->
+			<div>
+				<label for="name">Nombre</label> <input class="inputdata"
+					type="text" name="casaNombre" size="40" placeholder="NombreCasa"
+					data-ng-model="createEditHouseVM.Hosting.title"
+					data-ng-value="createEditHouseVM.Hosting.title" required />
+			</div>
+			<!-- Descripcion Hosting -->
+			<div>
+				<label>Descripcion</label>
+				<textarea name="casaDesc" rows="10" cols="50"
+					data-ng-model="createEditHouseVM.Hosting.description"
+					data-ng-value="createEditHouseVM.Hosting.description" required></textarea>
+				</label>
+			</div>
+			<!-- Telefono Hosting -->
+			<div>
+				<label for="tel">Telefono</label> <input class="inputdata"
+					type="tel" name="casaTelf" placeholder="Eg. +447000000"
+					data-ng-model="createEditHouseVM.Hosting.telephone"
+					data-ng-value="createEditHouseVM.Hosting.telephone"
+					pattern="[0-9]{9}" required />
+			</div>
+			<!-- Email Hosting -->
+			<div>
+				<label for="email">Email</label> <input class="inputdata"
+					type="text" name="casaMail" size="40"
+					placeholder="example@domain.com"
+					pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+					data-ng-model="createEditHouseVM.Hosting.contactEmail"
+					data-ng-value="createEditHouseVM.Hosting.contactEmail" required />
+			</div>
+			<!-- Localizacion Hosting -->
+			<div>
+				<label for="location">Localizacion</label> <input class="inputdata"
+					type="text" name="casaLocation" size="40" placeholder="Extremadura"
+					data-ng-model="createEditHouseVM.Hosting.location"
+					data-ng-value="createEditHouseVM.Hosting.location" required />
+			</div>
+			<!-- Precio Hosting -->
+			<div>
+				<label for="precio">Precio/noche</label> <input class="inputdata"
+					type="number" name="casaPrecio" size="40" placeholder="999"
+					pattern="[0-9]+" data-ng-model="createEditHouseVM.Hosting.precio"
+					data-ng-value="createEditHouseVM.Hosting.precio" required />
+			</div>
+			<!-- Seleccion Categoria de Casa -->
+			<div>
+				<label>Categories</label> <select
+					data-ng-model="createEditHouseVM.Category.id"
+					data-ng-value="createEditHouseVM.Category.id">
+					<option
+						data-ng-repeat="Category in createEditHouseVM.listaCategories"
+						value="{{Category.id}}">{{Category.name}}</option>
+				</select>
+			</div>
+			<!-- Checkbox Servicios Hosting -->
+
+			<fieldset id="fieldsetlogin">
+				<legend>Servicios</legend>
+				<label data-ng-repeat="Service in createEditHouseVM.listaServices">
+					<input type="checkbox" value="{{Service.id}}"
+					data-ng-model="createEditHouseVM.listaServicesChecked[$index]"
+					data-ng-true-value="{{Service.id}}" data-ng-false-value="-1">
+					{{Service.name}}
+				</label>
+			</fieldset>
+
+			<!-- Seleccion si casa Disponible o Reserva -->
+			<div data-ng-template
+				data-ng-if="createEditHouseVM.functions.where('/editCasa/' + createEditHouseVM.Hosting.id)">
+				<label>Disponible o Reserva:</label> <select
+					data-ng-model="createEditHouseVM.Hosting.available"
+					data-ng-value="createEditHouseVM.Hosting.available">
+					<option data-ng-value="0">Reservado</option>
+					<option data-ng-value="1">Disponible</option>
+				</select>
+			</div>
+
+		</fieldset>
+		<div>
+			<!-- Boton en caso de crear la casa -->
+			<input id="buttonCreateHouse" type="submit" value="Crear"
+				data-ng-template
+				data-ng-if="createEditHouseVM.functions.where('/crearCasa')"
+				class="button" />
+			<!-- Boton en caso de editar la casa -->
+			<input id="buttonEditHouse" type="submit" value="Editar"
+				data-ng-template
+				data-ng-if="createEditHouseVM.functions.where('/editCasa/' + createEditHouseVM.Hosting.id)"
+				class="button" />
+
+		</div>
+	</form>
+</div>

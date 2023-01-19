@@ -1,0 +1,33 @@
+<div>
+	<fieldset class="fieldsetlogin">
+		<div>
+			<input class="inputdata"
+				type="text" name="buscaTextoLista" size="40" placeholder="Buscar..."
+				data-ng-model="buscaTextoLista" />
+		</div>
+	</fieldset>
+	<div></div>
+	<div class="container"
+		data-ng-repeat="Hosting in listVM.HostingList|filter:buscaTextoLista">
+		<div class="card">
+			<div class="content">
+				<h3>{{Hosting.title}}</h3>
+				<h4>{{Hosting.description}}</h4>
+				<p>Ubicacion: {{Hosting.location}}</p>
+				<p>Precio/noche: {{Hosting.precio}}</p>
+				<p>Me gustas: {{Hosting.likes}}</p>
+				<p data-ng-template data-ng-if="Hosting.available=='1'">Disponible</p>
+				<p data-ng-template data-ng-if="Hosting.available=='0'">Reservado</p>
+			</div>
+			<!-- Dar/Quitar Favorito -->
+			<div>
+				<a href="" data-ng-click="listVM.functions.fav(Hosting.id)"
+					class="button">Favorito</a>
+			</div>
+			<!-- Detalles del Hosting -->
+			<div>
+				<a data-ng-href="#!/detalles/{{Hosting.id}}" class="button">Detalles</a>
+			</div>
+		</div>
+	</div>
+</div>

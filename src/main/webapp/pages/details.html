@@ -1,0 +1,36 @@
+<div>
+	<h2>{{detailsVM.Hosting.title}}</h2>
+	<h3>Anfitrion: {{detailsVM.User.username}}</h3>
+
+	<h4>Descripcion de la casa:</h4>
+	<p>{{detailsVM.Hosting.description}}</p>
+	<h3>
+		Precio: <b>{{detailsVM.Hosting.precio}}e</b>/noche
+	</h3>
+	<p>Cantidad de me gustas por la comunidad:
+		{{detailsVM.Hosting.likes}}</p>
+	<p>Estado de la casa:</p>
+	<p data-ng-template data-ng-if="detailsVM.Hosting.available=='1'">Disponible</p>
+	<p data-ng-template data-ng-if="detailsVM.Hosting.available=='0'">Reservado</p>
+	<div>
+		<h2>Algunas casas que podrian interesarte:</h2>
+	</div>
+	<div class="container"
+		data-ng-repeat="Hosting in detailsVM.HostingList">
+		<div class="card">
+			<div class="content">
+				<h3>{{Hosting.title}}</h3>
+				<h4>{{Hosting.description}}</h4>
+				<p>Ubicacion: {{Hosting.location}}</p>
+				<p>Precio/noche: {{Hosting.precio}}</p>
+				<p>Me gustas: {{Hosting.likes}}</p>
+				<p data-ng-template data-ng-if="Hosting.available=='1'">Disponible</p>
+				<p data-ng-template data-ng-if="Hosting.available=='0'">Reservado</p>
+			</div>
+			<!-- Detalles del Hosting -->
+			<div>
+				<a data-ng-href="#!/detalles/{{Hosting.id}}" class="button">Detalles</a>
+			</div>
+		</div>
+	</div>
+</div>

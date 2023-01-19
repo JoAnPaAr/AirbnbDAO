@@ -1,0 +1,141 @@
+body {
+	text-align: center;
+	background-color: #62C0FC;
+}
+
+/*Formato del login*/
+.fieldsetlogin {
+	width: fit-content;
+	text-align: center;
+	display: inline-block;
+	background-color: #FC6F62;
+}
+
+/*Enlaces que actuan como botones*/
+.button {
+	font: bold 11px Arial;
+	text-decoration: none;
+	background-color: #67F586;
+	color: #AA65E6;
+	padding: 2px 15px 2px 15px;
+	border-top: 1px solid #CCCCCC;
+	border-right: 1px solid #333333;
+	border-bottom: 1px solid #333333;
+	border-left: 1px solid #CCCCCC;
+}
+
+/*Valores que se introducen en los inputs del formulario*/
+.inputdata {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+}
+
+/*Disposicion de las tarjetas de las casas*/
+.container {
+	clear: both;
+	margin: 0 -5px;
+	display: table;
+	list-style: none;
+}
+
+div div .container {
+	display: inline-block;
+	float: left;
+	width: 325px;
+	max-width: 325px;
+	max-height: 325px;
+	margin-left: 50px;
+	clear: none;
+	margin-bottom: 15px;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+	.container {
+		width: 100%;
+		display: block;
+		margin-bottom: 20px;
+	}
+}
+
+/*Cambia las tarjetas de las casas*/
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	height: 320px;
+	transition: 0.3s;
+	margin-top: 5px;
+	background-color: aliceblue;
+	transition: 0.3s;
+}
+
+/*Crea un sombreado al pasar el raton por encima de las tarjetas*/
+.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/*Crea un sombreado al pasar el raton por encima de las tarjetas horizontales*/
+.card-horizontal:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/*Cambia el tamanyo de las imagenes*/
+img {
+	border-radius: 5px 5px 0 0;
+	width: 100%;
+	height: 40%;
+}
+
+/*Cambia el conenido del texto de la tarjeta*/
+.content {
+	display: list-item;
+	padding: 10px 10px;
+	justify-content: center;
+}
+
+#imgdetails {
+	width: 60%;
+	height: 30%;
+	margin-right: auto;
+	margin-left: auto;
+	border-radius: 10px;
+	align-content: center;
+}
+
+/* Input */
+div div input[type=text] {
+	width: 400px;
+}
+
+/* Text Area */
+div div textarea {
+	width: 400px;
+}
+
+/* Input */
+div div input[type=tel] {
+	width: 400px;
+}
+
+/* Input */
+div div input[type=number] {
+	width: 400px;
+}
+
+/* Label */
+div div div label {
+	position: relative;
+}
+
+/* Division */
+div fieldset div {
+	width: 400px;
+	right: -20px;
+}
+
+/* Fieldset */
+div fieldset fieldset {
+	width: 400px;
+}

@@ -1,0 +1,51 @@
+<div>
+	<form data-ng-submit="BuscarVM.functions.prepararBusq()">
+		<fieldset class="fieldsetlogin">
+			<div>
+				<label for="buscaTexto">Busqueda</label> <input class="inputdata"
+					type="text" name="buscaTexto" size="40" placeholder="Buscar..."
+					data-ng-model="BuscarVM.FilterText" />
+			</div>
+			<div>
+				<label for="buscaLikes">MinimoLikes</label> <input class="inputdata"
+					type="number" name="buscaLikes" pattern="[0-9]+"
+					data-ng-model="BuscarVM.FilterMinLikes.Min" />
+			</div>
+			<div>
+				<label for="buscaDispon">Disponible o Reserva:</label> <select
+					name="buscaDispon" data-ng-model="BuscarVM.FilterReserv">
+					<option value="2">Todos</option>
+					<option value="0">Reservado</option>
+					<option value="1">Disponible</option>
+				</select>
+			</div>
+			<div>
+				<label for="buscaOrden">Ordenar resultados por: </label> <select
+					name="buscaOrden" data-ng-model="BuscarVM.FilterOrder">
+					<option value="1">Nombres</option>
+					<option value="2">Likes</option>
+				</select>
+			</div>
+			<input id="buttonSearch" type="submit" value="Buscar" class="button" />
+		</fieldset>
+	</form>
+
+	<div class="container"
+		data-ng-repeat="Hosting in BuscarVM.HostingListBuscado">
+		<div class="card">
+			<div class="content">
+				<h3>{{Hosting.title}}</h3>
+				<h4>{{Hosting.description}}</h4>
+				<p>Ubicacion: {{Hosting.location}}</p>
+				<p>Precio/noche: {{Hosting.precio}}</p>
+				<p>Me gustas: {{Hosting.likes}}</p>
+				<p data-ng-template data-ng-if="Hosting.available=='1'">Disponible</p>
+				<p data-ng-template data-ng-if="Hosting.available=='0'">Reservado</p>
+			</div>
+			<!-- Detalles del Hosting -->
+			<div>
+				<a data-ng-href="#!/detalles/{{Hosting.id}}" class="button">Detalles</a>
+			</div>
+		</div>
+	</div>
+</div>
